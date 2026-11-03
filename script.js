@@ -4,10 +4,7 @@
 
   const root = document.documentElement;
 
-  /* ---------------------------------------------------------------------
-     INTENTIONAL TEST ERROR — remove these two lines to make the console clean.
-     It only logs a red error in DevTools; the page still works normally.
-     --------------------------------------------------------------------- */
+ 
   console.error("[Test error] Intentional error in script.js", new Error("This is a deliberate test error."));
 
 
@@ -39,7 +36,7 @@
   try {
     storedTheme = localStorage.getItem(THEME_KEY);
   } catch (_) {
-    /* ignore */
+  
   }
 
   if (storedTheme === "light" || storedTheme === "dark") {
@@ -52,7 +49,7 @@
     applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
   });
 
-  /* ---------------------------- Mobile nav ----------------------------- */
+
   const menuBtn = document.getElementById("menu-btn");
   const nav = document.getElementById("nav");
 
@@ -79,7 +76,6 @@
     if (window.innerWidth > 780) setMenu(false);
   });
 
-  /* ------------------------- Header on scroll -------------------------- */
   const header = document.querySelector(".site-header");
 
   function onScroll() {
@@ -89,7 +85,6 @@
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* ---------------------- Active section in nav ------------------------ */
   const navLinks = Array.from(document.querySelectorAll(".nav-link"));
   const sections = navLinks
     .map(function (link) {
@@ -116,7 +111,6 @@
     });
   }
 
-  /* ------------------------------ Footer ------------------------------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 })();
